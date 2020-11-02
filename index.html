@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fingerprint Client</title>
+    <script src="client.js"></script>
+</head>
+<body style="word-break:break-all;"></body>
+<script>
+    var client = new ClientJS();
+        var obj = {};
+        var tmp = '';
+        for ( prop in client ) {
+            tmp = prop[0] + prop[1]
+            if ( tmp == 'is' || tmp == 'ge' ) {
+                obj[ prop ] = client[ prop ] ();
+            }
+        }
+    setTimeout( function() {
+        var elem = '';
+        var html = '';
+        for ( prop in obj ) {
+            elem = document.createElement('h2');
+            elem.innerHTML = prop + ':';
+            document.body.appendChild( elem );
+            elem = document.createElement('div');
+            if( typeof obj[ prop ] == 'object' ) {
+                html = '';
+                for ( k in obj[prop] ) {
+                    html += '<strong>' + k + '</strong> => ' + JSON.stringify( obj[prop][k] ) + '<br>';
+                }
+                elem.innerHTML = html;
+            } else {
+                elem.innerHTML = obj[ prop ];
+            }
+            document.body.appendChild( elem );
+        }
+    }, 1000 )
+</script>
+</html>
