@@ -53,8 +53,10 @@ body #mobile-nav {
   display: block;
 }
 body #mobile-nav ul {
+  position: relative;
   float: right;
   width: 245px;
+  right: -245px;
   margin: 0;
   padding: 60px 0;
   list-style-type: none;
