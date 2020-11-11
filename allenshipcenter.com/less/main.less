@@ -1,0 +1,43 @@
+@import "colors.less";
+
+@import "settings.less";
+
+@import "mixins.less";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 320px;
+    text-rendering: optimizeLegibility;
+    //font-family: 'Open Sans', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    word-break: break-word;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+    .column {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    @import "nav.less";
+
+    @import "header.less";
+
+    @import "content.less";
+
+    @import "footer.less";
+}
